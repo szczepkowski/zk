@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "properties": {
+    "sellerId": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    },
+    "price": {
+      "type": "string"
+    },
+    "comments": {
+      "type": "array",
+      "items": {
+        "$ref": "./comment-view.json"
+      }
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "definitions": {
+    "commentView": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

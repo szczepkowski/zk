@@ -1,0 +1,62 @@
+mongodb:
+  max:
+    pool:
+      size: 300
+
+spring:
+  data:
+    mongodb:
+      database:  goreit
+      authentication-database: admin
+      host: mongo
+      port: 27017
+      password: root
+      username: root
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 20MB
+      max-request-size: 20MB
+    application:
+      name: Goreit
+
+keycloak:
+  realm: fixa
+  resource: fixa-app
+  auth-server-url: http://localhost:8080/auth
+  public-client: true
+  principal-attribute: preferred_username
+  cors: true
+  securityConstraints[0]:
+    authRoles[0]: user
+    securityCollections[0]:
+      name: user resource
+      patterns: /orders
+
+
+logging:
+  level:
+    org:
+      keycloak: TRACE
+      springframework: TRACE
+#  cloud:
+#    kubernetes:
+#      discovery:
+#        all-namespaces: true
+
+
+server:
+  port: 8081
+
+#ribbon:
+#  http:
+#    client:
+#      enabled: true
+pricing:
+  commission: 0.00
+  default:
+    balance: 100
+    coins: 200
+  coins:
+    multipler: 5
+    divider: 10
